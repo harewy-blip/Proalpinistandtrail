@@ -188,3 +188,43 @@ aparece en el calendario de intervals.icu y luego en el reloj.
    intervals.icu (`updateWellness`).
 5. Guardar en `planned_workouts` lo que se envía desde Programador (con el
    `intervals_event_id` devuelto).
+
+---
+
+## 5. Ideas para la próxima sesión (6 oct 2026)
+
+### a) Comparador basado en tus mejores rendimientos
+Ahora "Versiones de mí" compara solo contra la subida del Chalo hace 3, 6 y 12
+meses. La idea es que la referencia sean **las carreras, pruebas o tests que tú
+marques como tus puntos de mejor rendimiento**.
+- Marcar una actividad como "referencia" (carrera, test de umbral, benchmark…)
+  con un nombre y un motivo ("mi mejor Chalo", "Trail X 2026").
+- Elegir contra cuál comparar el intento de hoy, en vez de fijarlo por meses.
+- Comparar solo lo comparable: mismo segmento o tipo de prueba, guardando las
+  condiciones (temperatura, sueño, forma).
+- Base técnica: ya existen `benchmarks`, `benchmark_results` y
+  `segment_efforts` en el esquema; falta un campo tipo `is_reference` / tabla de
+  referencias y la UI para marcarlas.
+
+### b) Nutrición mucho más completa
+Hoy solo hay el total de carbohidratos y proteína del día. Ampliarlo con:
+- **Reparto por comidas**: desayuno, comida, merienda, cena y antes/durante/
+  después de entrenar, con gramos de carbohidratos, proteína y grasa en cada
+  una, ajustados a la hora de la sesión.
+- **Apartado propio en la barra de abajo** (cuarta pestaña "Nutrición") con:
+  - recomendaciones de comida concretas por tipo de día (plantillas de menús,
+    no conteo de calorías, como dice la especificación);
+  - ajuste de macros en cada comida cuando cambia la sesión;
+  - plan de avituallamiento durante la sesión (geles, bebida, g/h).
+- Añadir grasa y calorías totales al cálculo (ahora solo hay CHO y proteína).
+
+### c) Revisar y exponer las variables más importantes
+Revisar todos los valores que ahora están fijos en el código y decidir cuáles
+deben verse y poder cambiarse (pantalla de ajustes / perfil). Candidatas:
+- Peso, FC umbral, FC máxima y FC en reposo de referencia.
+- Umbrales del semáforo (sueño, FC en reposo, dolor muscular, forma).
+- Factores de pendiente de la carga excéntrica y % de aviso semanal (12,5 %).
+- Rangos de carbohidratos y proteína por tipo de día.
+- Día de calidad y reglas de la semana.
+Por aclarar: si "variables más importantes" se refiere a esto (ajustes) o a qué
+datos mostrar más destacados en cada pantalla.
