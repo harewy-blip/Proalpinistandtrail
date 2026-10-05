@@ -6,3 +6,5 @@ export * from "./climb";
 export * from "./ghost";
 export * from "./nutrition";
 export * from "./synthetic";
+export * from "./zones";
+export * from "./readiness";
