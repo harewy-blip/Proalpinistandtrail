@@ -202,9 +202,22 @@ marques como tus puntos de mejor rendimiento**.
 - Elegir contra cuál comparar el intento de hoy, en vez de fijarlo por meses.
 - Comparar solo lo comparable: mismo segmento o tipo de prueba, guardando las
   condiciones (temperatura, sueño, forma).
-- Base técnica: ya existen `benchmarks`, `benchmark_results` y
-  `segment_efforts` en el esquema; falta un campo tipo `is_reference` / tabla de
-  referencias y la UI para marcarlas.
+- **Segmentos de Strava** como referencias más: elegir tus segmentos de Strava
+  (subidas, bajadas) y comparar tus pasos por ellos.
+  - Opción A: traer de Strava solo la geometría del segmento (inicio, fin,
+    distancia, desnivel) y detectar los pasos en tus actividades de COROS con
+    `matchSegment`, que ya existe. No depende de los datos de esfuerzos de
+    Strava.
+  - Opción B: leer tus esfuerzos directamente de la API de Strava (OAuth,
+    `activity:read_all`). Verificar antes qué endpoints de esfuerzos siguen
+    abiertos, si exigen suscripción y qué permiten sus términos (límites de
+    peticiones, uso con IA, mostrar datos).
+  - Recordatorio: intervals.icu no reexpone por su API lo que le llega de
+    Strava, así que esto va por la API de Strava o por la opción A.
+- Base técnica: ya existen `segments`, `segment_efforts`, `benchmarks` y
+  `benchmark_results` en el esquema; falta un campo tipo `is_reference` / tabla
+  de referencias, el origen del segmento (propio o Strava, con su id) y la UI
+  para marcarlas.
 
 ### b) Nutrición mucho más completa
 Hoy solo hay el total de carbohidratos y proteína del día. Ampliarlo con:
@@ -218,13 +231,22 @@ Hoy solo hay el total de carbohidratos y proteína del día. Ampliarlo con:
   - plan de avituallamiento durante la sesión (geles, bebida, g/h).
 - Añadir grasa y calorías totales al cálculo (ahora solo hay CHO y proteína).
 
-### c) Revisar y exponer las variables más importantes
-Revisar todos los valores que ahora están fijos en el código y decidir cuáles
-deben verse y poder cambiarse (pantalla de ajustes / perfil). Candidatas:
-- Peso, FC umbral, FC máxima y FC en reposo de referencia.
-- Umbrales del semáforo (sueño, FC en reposo, dolor muscular, forma).
-- Factores de pendiente de la carga excéntrica y % de aviso semanal (12,5 %).
-- Rangos de carbohidratos y proteína por tipo de día.
-- Día de calidad y reglas de la semana.
-Por aclarar: si "variables más importantes" se refiere a esto (ajustes) o a qué
-datos mostrar más destacados en cada pantalla.
+### c) Elegir las variables importantes y marcarlas en el dashboard
+Dos pasos:
+1. **Decidir entre las variables disponibles** cuáles importan. Candidatas:
+   - Carga: fitness, fatiga, forma, ratio agudo:crónico, monotonía y strain.
+   - Carga excéntrica semanal y su variación frente a 4 semanas.
+   - Tiempo semanal planificado frente a realizado por tipo.
+   - Distribución de intensidad (% Z1–2 / Z3 / Z4–5) y desacople Pa:FC.
+   - Wellness: sueño, HRV, FC en reposo, dolor muscular, peso (media semanal).
+   - Rendimiento: VAM, tiempo en la referencia, FC umbral.
+   - Nutrición: carbohidratos/proteína del día, g/h en esfuerzo.
+   - Adherencia a las sesiones clave.
+2. **Marcar las elegidas para que aparezcan en el dashboard** (Hoy): un ajuste
+   donde activas/desactivas y ordenas tarjetas o indicadores; se guarda en las
+   preferencias del perfil (`profiles.preferences`, ya existe en el esquema).
+
+Además, revisar los valores que ahora están fijos en el código y hacerlos
+editables en ajustes: peso, FC umbral/máxima/reposo, umbrales del semáforo,
+factores de pendiente y % de aviso excéntrico (12,5 %), rangos de nutrición y
+día de calidad.
