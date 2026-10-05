@@ -19,7 +19,7 @@ Comprobación: `npm run check` (typecheck + 119 tests + build) pasa en limpio.
   typecheck, tests y build en cada push.
 
 ### Esquema SQL para Supabase — `supabase/migrations/` (no ejecutado)
-- 7 migraciones, 22 tablas: perfil, zonas con fecha de validez, actividades
+- 7 migraciones, 21 tablas: perfil, zonas con fecha de validez, actividades
   (+ streams aparte), wellness, objetivos, bloques, sesiones planificadas,
   segmentos de referencia y sus pasos detectados, benchmarks y resultados con
   condiciones, nutrición, material, rutas, reglas y evaluaciones, contrato de
