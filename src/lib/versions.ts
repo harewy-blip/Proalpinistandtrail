@@ -1,5 +1,5 @@
 import { alignAttempts, type GhostSample } from "./calc/ghost";
-import { sampleChaloEfforts, chaloReference, type SampleEffort } from "./sample/chalo";
+import { sampleXaloEfforts, xaloReference, type SampleEffort } from "./sample/xalo";
 
 export interface EffortRow {
   id: string;
@@ -16,7 +16,7 @@ export interface EffortRow {
 }
 
 export interface VersionsView {
-  segment: typeof chaloReference;
+  segment: typeof xaloReference;
   efforts: EffortRow[];
   latest: EffortRow;
   comparisons: { against: EffortRow; deltaS: number; deltaVam: number; deltaHr: number | null }[];
@@ -42,7 +42,7 @@ function toRow(e: SampleEffort): EffortRow {
 
 /** Datos de la pantalla Versiones de mí: último intento frente a los anteriores. */
 export function getVersionsView(today: string): VersionsView {
-  const efforts = sampleChaloEfforts(today).sort((a, b) => b.date.localeCompare(a.date));
+  const efforts = sampleXaloEfforts(today).sort((a, b) => b.date.localeCompare(a.date));
   const rows = efforts.map(toRow);
   const latestEffort = efforts[0]!;
   const latest = rows[0]!;
@@ -52,7 +52,7 @@ export function getVersionsView(today: string): VersionsView {
   for (const e of efforts.slice(1)) ghosts[e.id] = alignAttempts(latestEffort.track, e.track, "elevation", 5);
 
   return {
-    segment: chaloReference,
+    segment: xaloReference,
     efforts: rows,
     latest,
     comparisons: older.map((o) => ({

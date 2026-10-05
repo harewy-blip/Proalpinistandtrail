@@ -31,8 +31,8 @@ export const WORKOUT_TEMPLATES: Record<string, WorkoutTemplate> = {
       { title: "Cooldown", items: [{ kind: "step", durationS: min(10), target: { kind: "hrZone", zone: "Z1" } }] },
     ],
   },
-  chalo: {
-    name: "Benchmark: Chalo a FC fija",
+  xalo: {
+    name: "Benchmark: Xalo a FC fija",
     type: "quality",
     sport: "TrailRun",
     physiologicalGoal: "Benchmark repetible: tiempo y VAM a la misma FC (Z2 alta)",
@@ -40,7 +40,7 @@ export const WORKOUT_TEMPLATES: Record<string, WorkoutTemplate> = {
     isKey: true,
     sections: [
       { title: "Warmup", items: [{ kind: "step", durationS: min(15), target: { kind: "hrZone", zone: "Z1" } }] },
-      { title: "Main Set", items: [{ kind: "step", label: "Chalo", lapButton: true, durationS: min(35), target: { kind: "lthrPct", min: 86, max: 89 } }] },
+      { title: "Main Set", items: [{ kind: "step", label: "Xalo", lapButton: true, durationS: min(35), target: { kind: "lthrPct", min: 86, max: 89 } }] },
       { title: "Cooldown", items: [{ kind: "step", durationS: min(15), target: { kind: "hrZone", zone: "Z1" } }] },
     ],
   },
@@ -95,7 +95,7 @@ export const WORKOUT_TEMPLATES: Record<string, WorkoutTemplate> = {
 
 export const TEMPLATE_LABELS: Record<keyof typeof WORKOUT_TEMPLATES, string> = {
   calidad: "Calidad en subida",
-  chalo: "Benchmark Chalo",
+  xalo: "Benchmark Xalo",
   umbral: "Test de umbral",
   rodaje: "Rodaje Z2",
   larga: "Larga de montaña",

@@ -108,7 +108,7 @@ export function detectClimbs(points: readonly TrackPoint[], opts: DetectClimbsOp
   }
 }
 
-/** Segmento de referencia guardado (p. ej. la subida al Chalo). */
+/** Segmento de referencia guardado (p. ej. la subida al Xalo). */
 export interface ReferenceSegment {
   id: string;
   name: string;

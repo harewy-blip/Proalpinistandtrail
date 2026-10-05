@@ -4,12 +4,12 @@ import type { TrackPoint } from "../calc/types";
 import { addDays } from "./week";
 
 /**
- * Subida de referencia de ejemplo: ~360 m continuos, como el Chalo de la
+ * Subida de referencia de ejemplo: ~360 m continuos, como el monte Xalo (A Coruña) de la
  * especificación. Coordenadas ficticias.
  */
-export const chaloReference = {
-  id: "chalo",
-  name: "Subida al Chalo",
+export const xaloReference = {
+  id: "xalo",
+  name: "Subida al monte Xalo",
   distanceM: 3900,
   gainM: 360,
 };
@@ -27,10 +27,10 @@ export interface SampleEffort {
 }
 
 /**
- * Perfil del Chalo en tramos: rampa inicial, tramo duro, rellano y final.
+ * Perfil del Xalo en tramos: rampa inicial, tramo duro, rellano y final.
  * El ritmo por tramo escala con `fitness` (1 = intento de hoy).
  */
-function chaloLegs(fitness: number, hrOffset: number): SyntheticLeg[] {
+function xaloLegs(fitness: number, hrOffset: number): SyntheticLeg[] {
   const base: [number, number, number, number][] = [
     // distancia, pendiente %, velocidad m/s (hoy), FC
     [600, 0, 2.9, 138],
@@ -48,7 +48,7 @@ function chaloLegs(fitness: number, hrOffset: number): SyntheticLeg[] {
   }));
 }
 
-export function sampleChaloEfforts(today: string): SampleEffort[] {
+export function sampleXaloEfforts(today: string): SampleEffort[] {
   const attempts = [
     { monthsAgo: 12, fitness: 0.82, hrOffset: 3, temperatureC: 14, sleepH: 7.0, form: -6 },
     { monthsAgo: 6, fitness: 0.89, hrOffset: 2, temperatureC: 19, sleepH: 7.5, form: -9 },
@@ -56,10 +56,10 @@ export function sampleChaloEfforts(today: string): SampleEffort[] {
     { monthsAgo: 0, fitness: 1, hrOffset: 0, temperatureC: 16, sleepH: 7.4, form: -8 },
   ];
   return attempts.map((a, i) => {
-    const track = syntheticTrack(chaloLegs(a.fitness, a.hrOffset), { lat: 40.4, lng: -3.9, alt: 640 }, { noiseM: 0.8, seed: i + 3 });
+    const track = syntheticTrack(xaloLegs(a.fitness, a.hrOffset), { lat: 40.4, lng: -3.9, alt: 640 }, { noiseM: 0.8, seed: i + 3 });
     const climb = detectClimbs(track, { minGainM: 200 })[0]!;
     return {
-      id: `chalo-${a.monthsAgo}`,
+      id: `xalo-${a.monthsAgo}`,
       date: addDays(today, -Math.round(a.monthsAgo * 30.4) - (a.monthsAgo ? 0 : 2)),
       label: a.monthsAgo ? `Hace ${a.monthsAgo} meses` : "Último",
       monthsAgo: a.monthsAgo,

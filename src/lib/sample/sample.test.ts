@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { sampleChaloEfforts, sampleWeek, mondayOf } from ".";
+import { sampleXaloEfforts, sampleWeek, mondayOf } from ".";
 
 describe("datos de ejemplo", () => {
   it("la semana empieza en lunes y tiene 7 días", () => {
@@ -12,8 +12,8 @@ describe("datos de ejemplo", () => {
     expect(w[5]!.type).toBe("mountain");
   });
 
-  it("los intentos del Chalo rondan los 360 m y mejoran con el tiempo", () => {
-    const efforts = sampleChaloEfforts("2026-10-05");
+  it("los intentos del Xalo rondan los 360 m y mejoran con el tiempo", () => {
+    const efforts = sampleXaloEfforts("2026-10-05");
     for (const e of efforts) {
       expect(e.climb.gainM).toBeGreaterThan(330);
       expect(e.climb.gainM).toBeLessThan(380);

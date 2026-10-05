@@ -2,14 +2,14 @@ import { describe, expect, it } from "vitest";
 import { detectClimbs, matchSegment, type ReferenceSegment } from "./climb";
 import { syntheticTrack } from "./synthetic";
 
-// Subida tipo Chalo: ~360 m de desnivel con 4 km al 9 %.
+// Subida tipo Xalo: ~360 m de desnivel con 4 km al 9 %.
 const warmup = { distanceM: 1500, gradePct: 0, speedMs: 2.8, hr: 135 };
-const chalo = { distanceM: 4000, gradePct: 9, speedMs: 2.2, hr: 168 };
+const xalo = { distanceM: 4000, gradePct: 9, speedMs: 2.2, hr: 168 };
 const descent = { distanceM: 2500, gradePct: -14.4, speedMs: 3, hr: 140 };
 
 describe("detectClimbs", () => {
   it("detecta la subida continua con su desnivel, VAM y FC", () => {
-    const pts = syntheticTrack([warmup, chalo, descent], undefined, { noiseM: 1, seed: 7 });
+    const pts = syntheticTrack([warmup, xalo, descent], undefined, { noiseM: 1, seed: 7 });
     const climbs = detectClimbs(pts);
     expect(climbs).toHaveLength(1);
     const c = climbs[0]!;
@@ -54,12 +54,12 @@ describe("detectClimbs", () => {
 });
 
 describe("matchSegment", () => {
-  const pts = syntheticTrack([warmup, chalo, descent]);
+  const pts = syntheticTrack([warmup, xalo, descent]);
   const startPt = pts.find((p) => p.dist >= warmup.distanceM)!;
-  const endPt = pts.find((p) => p.dist >= warmup.distanceM + chalo.distanceM)!;
+  const endPt = pts.find((p) => p.dist >= warmup.distanceM + xalo.distanceM)!;
   const ref: ReferenceSegment = {
-    id: "chalo",
-    name: "Subida al Chalo",
+    id: "xalo",
+    name: "Subida al Xalo",
     start: { lat: startPt.lat!, lng: startPt.lng! },
     end: { lat: endPt.lat!, lng: endPt.lng! },
     distanceM: 4000,
@@ -75,7 +75,7 @@ describe("matchSegment", () => {
   });
 
   it("no encuentra nada en otra zona", () => {
-    const elsewhere = syntheticTrack([chalo], { lat: 42, lng: 1, alt: 800 });
+    const elsewhere = syntheticTrack([xalo], { lat: 42, lng: 1, alt: 800 });
     expect(matchSegment(elsewhere, ref)).toEqual([]);
   });
 

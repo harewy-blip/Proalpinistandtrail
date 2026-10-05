@@ -42,7 +42,7 @@ export function sampleWeek(anyDateInWeek: string): StructuredWorkout[] {
       type: "quality",
       sport: "TrailRun",
       physiologicalGoal: "Tempo en subida: elevar el umbral aeróbico sin entrar en zona roja",
-      premises: ["Subida continua ≥ 10' (ruta del Chalo)", "Bajadas de recuperación al trote, sin frenar"],
+      premises: ["Subida continua ≥ 10' (ruta del Xalo)", "Bajadas de recuperación al trote, sin frenar"],
       isKey: true,
       sections: [
         { title: "Warmup", items: [{ kind: "step", durationS: min(20), target: { kind: "hrZone", zone: "Z1" } }] },

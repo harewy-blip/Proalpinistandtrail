@@ -13,7 +13,7 @@ describe("getVersionsView", () => {
   });
   it("fantasma por desnivel para cada intento anterior", () => {
     expect(Object.keys(v.ghosts)).toHaveLength(3);
-    const g = v.ghosts["chalo-12"]!;
+    const g = v.ghosts["xalo-12"]!;
     expect(g[0]!.x).toBe(0);
     expect(g[g.length - 1]!.deltaS).toBeLessThan(-300);
   });

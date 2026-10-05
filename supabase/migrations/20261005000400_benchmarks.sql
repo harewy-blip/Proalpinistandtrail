@@ -1,6 +1,6 @@
 -- Versiones de mí: segmentos de referencia, esfuerzos detectados y benchmarks.
 
--- Segmento de referencia detectable por GPS (p. ej. subida al Chalo).
+-- Segmento de referencia detectable por GPS (p. ej. subida al Xalo).
 create table public.segments (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null default auth.uid() references auth.users (id) on delete cascade,

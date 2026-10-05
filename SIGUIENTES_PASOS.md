@@ -169,7 +169,7 @@ aparece en el calendario de intervals.icu y luego en el reloj.
 - **Test de umbral** (plantilla «Test de umbral» en Programador) para
   sustituir los 185 ppm provisionales.
 - **Tu peso** y las coordenadas de inicio y fin de tu subida de referencia
-  (Chalo). Las coordenadas del ejemplo son ficticias.
+  (Xalo). Las coordenadas del ejemplo son ficticias.
 - **Archivo de Strava**: Ajustes → Mi cuenta → Descarga o elimina tu cuenta →
   Solicitar archivo (histórico desde 2023).
 
@@ -194,11 +194,11 @@ aparece en el calendario de intervals.icu y luego en el reloj.
 ## 5. Ideas para la próxima sesión (6 oct 2026)
 
 ### a) Comparador basado en tus mejores rendimientos
-Ahora "Versiones de mí" compara solo contra la subida del Chalo hace 3, 6 y 12
+Ahora "Versiones de mí" compara solo contra la subida del Xalo hace 3, 6 y 12
 meses. La idea es que la referencia sean **las carreras, pruebas o tests que tú
 marques como tus puntos de mejor rendimiento**.
 - Marcar una actividad como "referencia" (carrera, test de umbral, benchmark…)
-  con un nombre y un motivo ("mi mejor Chalo", "Trail X 2026").
+  con un nombre y un motivo ("mi mejor Xalo", "Trail X 2026").
 - Elegir contra cuál comparar el intento de hoy, en vez de fijarlo por meses.
 - Comparar solo lo comparable: mismo segmento o tipo de prueba, guardando las
   condiciones (temperatura, sueño, forma).
@@ -250,3 +250,21 @@ Además, revisar los valores que ahora están fijos en el código y hacerlos
 editables en ajustes: peso, FC umbral/máxima/reposo, umbrales del semáforo,
 factores de pendiente y % de aviso excéntrico (12,5 %), rangos de nutrición y
 día de calidad.
+
+### d) Ajustes según *Entrenamiento para atletas de montaña* (House, Johnston, Jornet)
+Interpretación propia de sus principios, citados de memoria: verificar en el
+libro.
+- **Test de deriva de FC** (desacople aeróbico) como benchmark principal junto a
+  la subida al monte Xalo a FC fija.
+- **Zonas desde el umbral aeróbico (AeT) y el anaeróbico**, no solo como % de la
+  FC umbral: techo de Z2 = AeT. Mostrar la distancia AeT–AnT; si supera ~10 %
+  ("déficit aeróbico"), priorizar Z1–Z2 y revisar la calidad en Z3 del martes
+  en la fase de base.
+- **Comparador**: los tests a FC fija como referencias principales; carreras y
+  segmentos de Strava como secundarias, con sus condiciones guardadas y sin
+  convertir los segmentos en carreras semanales.
+- **Nutrición**: valorar el peso del metabolismo de grasas (algunas sesiones
+  suaves con poca ingesta) frente a la periodización alta en carbohidratos.
+- **Variables candidatas para el dashboard** según su enfoque: horas por zona
+  (% Z1–Z2), deriva de FC en largas en Z2, FC del AeT y su evolución, volumen de
+  fuerza/resistencia muscular, sensaciones y recuperación.

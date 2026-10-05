@@ -3,7 +3,7 @@
 2026-10-05 · 
 ## Visión y principios
 La app es el sistema operativo de tu temporada: une datos, cargas, nutrición, material, rutas y objetivos, y te enseña tu progreso frente a tus propias versiones anteriores. Empieza como herramienta personal, pero se diseña multiusuario desde el día 1 para poder convertirla en producto sin reescribirla.
-Perfil de uso: deportista autoentrenado de trail corto/medio, montaña y alpinismo. Terreno de referencia: Chalo (~500 m, subida continua máx. ~360 m, 70–90 m/km habituales). Stack actual: COROS (ejecución), Strava (histórico), TrainingPeaks (planificación).
+Perfil de uso: deportista autoentrenado de trail corto/medio, montaña y alpinismo. Terreno de referencia: Xalo (~500 m, subida continua máx. ~360 m, 70–90 m/km habituales). Stack actual: COROS (ejecución), Strava (histórico), TrainingPeaks (planificación).
 Principios de diseño
 - 
 El tiempo de entrenamiento es la métrica de carga principal; el desnivel es consecuencia del terreno, no un objetivo.
@@ -153,7 +153,7 @@ Benchmark
 Protocolo
 Métrica
 Cuándo
-Subida al Chalo a FC fija
+Subida al Xalo a FC fija
 Subida continua ~360 m a FC constante (Z2 alta)
 Tiempo y VAM (m/h) a la misma FC
 Cada 4 semanas, final de la semana 3
@@ -190,7 +190,7 @@ Intención de implementación: cada sesión clave con día, hora y lugar fijados
 - 
 Revisión semanal de 3 minutos (domingo): RPE, sensaciones y una mejora; la IA resume la tendencia.
 - 
-Récords objetivos: mejor VAM, mejor Chalo y semanas seguidas en plan.
+Récords objetivos: mejor VAM, mejor Xalo y semanas seguidas en plan.
 Evitar: castigos, comparaciones con otros en v1 y métricas de vanidad (km totales).
 ## Objetivos y pruebas
 La fecha de la prueba A define la temporada: la app genera los bloques hacia atrás desde ella y coloca las B y C como entrenamiento.
@@ -250,7 +250,7 @@ Bajada técnica y bajada rápida.
 - 
 Larga de montaña y recuperación.
 - 
-Benchmark (Chalo).
+Benchmark (Xalo).
 Ejemplo: 3×10' Z3 en subida → la app busca rutas con ≥ 30' de subida continua o rampas repetibles de ≥ 10'.
 Especificidad: compara el ratio desnivel/distancia y la pendiente de tus rutas habituales (70–90 m/km) con el perfil de la prueba objetivo, e indica qué tipo de terreno te falta entrenar.
 Fuentes: segmentos repetidos de tus actividades, importación de GPX y alta manual. Mapa topográfico (Mapbox o MapLibre) y previsión meteo (p. ej. Open-Meteo) para las salidas del fin de semana.
@@ -317,7 +317,7 @@ Versión 1 — en uso diario en 2 semanas. Solo lo que intervals.icu no te da:
 - 
 Hoy: sesión programada desde la app (enviada al reloj vía intervals.icu) con objetivo, premisas y carbohidratos del día según tipo y duración.
 - 
-Versiones de mí: subida al Chalo detectada automáticamente por GPS, con tiempo, VAM y FC media, y gráfica fantasma frente a las anteriores.
+Versiones de mí: subida al Xalo detectada automáticamente por GPS, con tiempo, VAM y FC media, y gráfica fantasma frente a las anteriores.
 - 
 Carga excéntrica semanal: metros de bajada ponderados por pendiente, con aviso si supera en más de ~10–15 % la media de 4 semanas.
 - 
