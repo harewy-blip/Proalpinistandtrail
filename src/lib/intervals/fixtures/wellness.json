@@ -1,0 +1,4 @@
+[
+  { "id": "2026-10-04", "ctl": 52.1, "atl": 58.3, "rampRate": 2.1, "weight": 68.2, "restingHR": 45, "hrv": 71, "sleepSecs": 26640, "sleepScore": 82, "soreness": 3, "fatigue": 2 },
+  { "id": "2026-10-05", "ctl": 52.4, "atl": 55.0, "rampRate": 2.0, "weight": 68.0, "restingHR": 46, "hrv": 68, "sleepSecs": 27360, "sleepScore": 85, "soreness": 2 }
+]

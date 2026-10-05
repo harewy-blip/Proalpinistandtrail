@@ -1,0 +1,43 @@
+[
+  {
+    "id": "i98765432",
+    "start_date_local": "2026-10-03T08:12:40",
+    "start_date": "2026-10-03T06:12:40Z",
+    "type": "TrailRun",
+    "name": "Chalo a FC fija",
+    "source": "COROS",
+    "moving_time": 5340,
+    "elapsed_time": 5610,
+    "distance": 12480.5,
+    "total_elevation_gain": 612,
+    "total_elevation_loss": 608,
+    "average_heartrate": 152,
+    "max_heartrate": 171,
+    "icu_training_load": 96,
+    "trimp": 118.4,
+    "icu_hr_zone_times": [1510, 2120, 1490, 220, 0],
+    "stream_types": ["time", "distance", "altitude", "fixed_altitude", "heartrate", "latlng", "cadence"],
+    "device_name": "COROS APEX 2 Pro"
+  },
+  {
+    "id": "i98765100",
+    "start_date_local": "2026-10-02T19:05:00",
+    "type": "Run",
+    "source": "STRAVA",
+    "strava_id": "12345678901"
+  },
+  {
+    "id": "i98764001",
+    "start_date_local": "2026-09-28T18:30:00",
+    "type": "WeightTraining",
+    "name": "Fuerza de montaña",
+    "source": "COROS",
+    "moving_time": 2700,
+    "elapsed_time": 2900,
+    "distance": 0,
+    "total_elevation_gain": 0,
+    "average_heartrate": 108,
+    "max_heartrate": 141,
+    "icu_training_load": 18
+  }
+]

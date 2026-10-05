@@ -1,0 +1,20 @@
+[
+  {
+    "id": 70001234,
+    "category": "WORKOUT",
+    "start_date_local": "2026-10-06T00:00:00",
+    "type": "TrailRun",
+    "name": "3×10' Z3 en subida",
+    "description": "Warmup\n- 20m Z1 HR\n\nMain Set 3x\n- Subida 10m Z3 HR\n- Bajada trote 5m Z1 HR\n\nCooldown\n- 10m Z1 HR",
+    "moving_time": 4500,
+    "icu_training_load": 82,
+    "external_id": "app:2026-10-06:3-10-z3-en-subida"
+  },
+  {
+    "id": 70001240,
+    "category": "RACE_A",
+    "start_date_local": "2027-06-12T00:00:00",
+    "type": "TrailRun",
+    "name": "Trail objetivo A"
+  }
+]

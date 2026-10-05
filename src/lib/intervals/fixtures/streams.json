@@ -1,0 +1,13 @@
+[
+  { "type": "time", "name": null, "data": [0, 1, 2, 3, 4, 5] },
+  { "type": "distance", "name": null, "data": [0, 2.4, 4.9, 7.3, 9.8, 12.2] },
+  { "type": "altitude", "name": null, "data": [640.2, 640.4, 640.7, 641.0, 641.2, 641.5] },
+  { "type": "fixed_altitude", "name": null, "data": [638.0, 638.2, 638.5, 638.8, 639.0, null] },
+  { "type": "heartrate", "name": null, "data": [128, 129, 0, 131, 132, 133] },
+  {
+    "type": "latlng",
+    "name": null,
+    "data": [40.400012, 40.400034, null, 40.400078, 40.4001, 40.400122],
+    "data2": [-3.900001, -3.900002, null, -3.900004, -3.900005, -3.900006]
+  }
+]
