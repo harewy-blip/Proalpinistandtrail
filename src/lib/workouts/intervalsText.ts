@@ -89,10 +89,12 @@ function sanitizeCue(label: string): string {
 
 /**
  * Texto final del evento: premisas como notas (líneas sin "-" que el parser
- * trata como comentario) seguidas de los pasos.
+ * trata como comentario) seguidas de los pasos. Un "4x" en una nota abriría
+ * un bloque de repeticiones, así que se escribe con el signo ×.
  */
 export function toIntervalsDescription(w: StructuredWorkout): string {
   const steps = toIntervalsText(w);
-  const notes = [w.physiologicalGoal, ...w.premises].filter(Boolean).map((n) => n.replace(/^[-\s]+/, ""));
+  const notes = [w.physiologicalGoal, ...w.premises].filter(Boolean).map((n) => n.replace(/^[-\s]+/, "").replace(/(\d+)\s*x\b/gi, "$1×"))
+    .filter(Boolean);
   return [notes.join("\n"), steps].filter(Boolean).join("\n\n");
 }

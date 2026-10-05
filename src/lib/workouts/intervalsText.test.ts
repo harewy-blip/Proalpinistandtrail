@@ -54,6 +54,13 @@ describe("toIntervalsDescription", () => {
   });
 });
 
+describe("notas seguras para el parser", () => {
+  it("un 4x en una premisa no abre repeticiones y se quitan guiones iniciales", () => {
+    const d = toIntervalsDescription({ ...quality, physiologicalGoal: "", premises: ["Step-up 4x8", "- sin prisa", ""] });
+    expect(d.split("\n\n")[0]).toBe("Step-up 4×8\nsin prisa");
+  });
+});
+
 describe("duración", () => {
   it("suma pasos y repeticiones", () => {
     expect(workoutSeconds(quality)).toBe((20 + 3 * 15 + 10) * 60);

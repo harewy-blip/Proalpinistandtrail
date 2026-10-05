@@ -152,7 +152,7 @@ export function Programador({
               <span>
                 {formatWeekday(d.date)} {Number(d.date.slice(8))}
               </span>
-              <strong>{TYPES.find(([t]) => t === d.type)?.[1]}</strong>
+              <strong>{SHORT_LABEL[d.type]}</strong>
               <span className="num">{d.type === "rest" ? "—" : formatDuration(workoutSeconds(d))}</span>
             </button>
           ))}
@@ -433,6 +433,18 @@ function RepeatEditor({ rep, onChange, onRemove }: { rep: Repeat; onChange: (r: 
     </div>
   );
 }
+
+const SHORT_LABEL: Record<SessionType, string> = {
+  rest: "Desc.",
+  strength: "Fza.",
+  climbing: "Escal.",
+  aerobic: "Z2",
+  bike: "Bici",
+  quality: "Cal.",
+  mountain: "Mont.",
+  long: "Larga",
+  race: "Carrera",
+};
 
 const SECTION_LABEL: Record<string, string> = {
   Warmup: "Calentamiento",

@@ -21,6 +21,18 @@ const TYPE_LABEL: Record<string, string> = {
   race: "Carrera",
 };
 
+const SHORT_LABEL: Record<string, string> = {
+  rest: "Desc.",
+  strength: "Fza.",
+  climbing: "Escal.",
+  aerobic: "Z2",
+  bike: "Bici",
+  quality: "Cal.",
+  mountain: "Mont.",
+  long: "Larga",
+  race: "Carrera",
+};
+
 export default async function TodayPage({ searchParams }: { searchParams: Promise<{ d?: string }> }) {
   const { d } = await searchParams;
   const today = d && /^\d{4}-\d{2}-\d{2}$/.test(d) ? d : todayIn();
@@ -50,7 +62,7 @@ export default async function TodayPage({ searchParams }: { searchParams: Promis
               aria-current={day.date === today ? "date" : undefined}
             >
               <span>{formatWeekday(day.date)}</span>
-              <strong>{TYPE_LABEL[day.type]}</strong>
+              <strong>{SHORT_LABEL[day.type]}</strong>
               <span className="num">{day.type === "rest" ? "—" : formatDuration(workoutSeconds(day))}</span>
             </Link>
           ))}
