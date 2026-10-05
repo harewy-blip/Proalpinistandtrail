@@ -1,3 +1,4 @@
+import { smooth } from "./geo";
 import type { TrackPoint } from "./types";
 
 export type GhostAxis = "distance" | "elevation";
@@ -13,8 +14,8 @@ export interface GhostSample {
 
 /**
  * Alinea dos intentos del mismo segmento para la gráfica fantasma. Ambos se
- * re-muestrean sobre un eje común (distancia recorrida o desnivel positivo
- * acumulado) cada `stepM` metros, interpolando linealmente tiempo y FC.
+ * re-muestrean sobre un eje común (distancia recorrida o altura ganada sobre
+ * el inicio) cada `stepM` metros, interpolando linealmente tiempo y FC.
  * Alinear por posición y no por tiempo es lo que permite decir "en el metro
  * 200 de desnivel ibas 40 s por delante y con 5 ppm menos".
  *
@@ -49,13 +50,14 @@ function toSeries(points: readonly TrackPoint[], axis: GhostAxis): Series {
   const s: Series = { x: [], t: [], hr: [] };
   if (!points.length) return s;
   const p0 = points[0]!;
+  // Eje de desnivel: altura ganada sobre el inicio (máximo acumulado de la
+  // altitud suavizada). Sumar cada subida punto a punto convertiría el ruido
+  // del barómetro en desnivel y desalinearía los intentos.
+  const alt = axis === "elevation" ? smooth(points.map((p) => p.alt), 9) : [];
   let gain = 0;
   for (let i = 0; i < points.length; i++) {
     const p = points[i]!;
-    if (i > 0) {
-      const d = p.alt - points[i - 1]!.alt;
-      if (d > 0) gain += d;
-    }
+    if (axis === "elevation") gain = Math.max(gain, alt[i]! - alt[0]!);
     const x = axis === "distance" ? p.dist - p0.dist : gain;
     // El eje debe ser estrictamente creciente para interpolar: se descartan
     // las muestras sin avance (parado, o rellano en el eje de desnivel).

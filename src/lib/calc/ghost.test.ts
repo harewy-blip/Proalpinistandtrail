@@ -20,8 +20,10 @@ describe("alignAttempts", () => {
   it("por desnivel: mismo resultado en una subida uniforme", () => {
     const s = alignAttempts(fast, slow, "elevation", 10);
     const end = s[s.length - 1]!;
-    expect(end.x).toBeCloseTo(360, -1);
-    expect(end.deltaS).toBeCloseTo(-333, -1);
+    expect(end.x).toBeGreaterThanOrEqual(350);
+    expect(end.x).toBeLessThanOrEqual(360);
+    // la ventaja es proporcional a la altura alcanzada
+    expect(end.deltaS).toBeCloseTo((-333.3 * end.x) / 360, 0);
   });
 
   it("recorta al más corto de los dos", () => {
@@ -39,5 +41,16 @@ describe("alignAttempts", () => {
 
   it("intentos vacíos", () => {
     expect(alignAttempts([], [], "distance")).toEqual([{ x: 0, current: { t: 0, hr: null }, ghost: { t: 0, hr: null }, deltaS: 0 }]);
+  });
+});
+
+describe("alignAttempts con ruido de altitud", () => {
+  it("el ruido del barómetro no desalinea el eje de desnivel", () => {
+    const noisyFast = syntheticTrack([{ distanceM: 4000, gradePct: 9, speedMs: 2.4, hr: 166 }], undefined, { noiseM: 1, seed: 2 });
+    const noisySlow = syntheticTrack([{ distanceM: 4000, gradePct: 9, speedMs: 2.0, hr: 170 }], undefined, { noiseM: 1, seed: 9 });
+    const s = alignAttempts(noisyFast, noisySlow, "elevation", 10);
+    const end = s[s.length - 1]!;
+    expect(end.x).toBeLessThanOrEqual(365);
+    expect(Math.abs(end.deltaS + 333)).toBeLessThan(15);
   });
 });
