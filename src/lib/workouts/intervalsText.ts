@@ -94,7 +94,7 @@ function sanitizeCue(label: string): string {
  */
 export function toIntervalsDescription(w: StructuredWorkout): string {
   const steps = toIntervalsText(w);
-  const notes = [w.physiologicalGoal, ...w.premises].filter(Boolean).map((n) => n.replace(/^[-\s]+/, "").replace(/(\d+)\s*x\b/gi, "$1×"))
+  const notes = [w.physiologicalGoal, ...w.premises].filter(Boolean).map((n) => n.replace(/^[-\s]+/, "").replace(/(\d+)\s*x(?![a-z])/gi, "$1×"))
     .filter(Boolean);
   return [notes.join("\n"), steps].filter(Boolean).join("\n\n");
 }
