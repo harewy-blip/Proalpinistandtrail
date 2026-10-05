@@ -8,3 +8,4 @@ export * from "./nutrition";
 export * from "./synthetic";
 export * from "./zones";
 export * from "./readiness";
+export * from "./weekRules";
